@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-#include "glad/include/glad/gl.h"
+#include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 /* *****************************************************************************
@@ -300,7 +300,7 @@ int main(int argc, char const *argv[])
   glfwMakeContextCurrent(window);
   glfwSetKeyCallback(window, key_callback);
 
-  if(!gladLoadGL(glfwGetProcAddress))
+  if(!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
   {
     fprintf(stderr, "ERROR: Failed init GLAD (OpenGL)!\n");
     glfwTerminate();
